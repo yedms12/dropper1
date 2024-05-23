@@ -1,103 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Images with Scroll Animation</title>
-    <style>
-        /* 기본 설정 */
-        body, html {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        h1{font-family: 'NeoDunggeunmo Pro'; color: #0057FF; font-weight: 400; padding-top: 50px; font-size: 3rem;}
+<style type="text/css">
 
-        /* 컨테이너 스타일 */
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            padding: 20px;
-        }
+.fade{animation: fadein 1s cubic-bezier(0.31, 0, 0.58, 1)forwards; position: relative; font-size: 4rem; text-align: center;}
 
-        /* 반응형 이미지 스타일 */
-        .responsive-image {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            transition: transform 1s ease-out, opacity 0.5s ease-out;
-            opacity: 0;
-            transform: translateY(100px);
-        }
+@keyframes fadein{
+	from{left: 250px; opacity: 0}
+	to{left: 0px; opacity: 1}
+}
 
-        /* 스크롤 애니메이션 적용 클래스 */
-        .scroll-animation.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .padding1s {padding-right: 400px; padding-top: 100px;}
-        .padding2s {padding-top: 100px; padding-left: 600px; max-width: 28%;}
-        .padding3s {padding-right: 400px; padding-top: 100px;}
-        .padding4s {padding-right: 450px; padding-top: 60px; max-width: 35%; padding-bottom: 200px;}
-        .round-button {
-            background-color: #1400FF;
-            padding-top: 150px;
-            color: white;
-            border: none;
-            padding: 30px 50px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-family: 'NeoDunggeunmo Pro';
-            font-size: 30px;
-            margin: 20px 2px;
-            cursor: pointer;
-            border-radius: 30px;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        /* 버튼 호버링 효과 */
-        .round-button:hover {
-            transform: scale(1.1);
-            background-color: #1400FF;
-        }
+h1{font-family: 'NeoDunggeunmo Pro'; font-size: 2.5rem; color: white; font-weight: 100; line-height: 1.5; text-align: center;}
+h2{font-family: 'NeoDunggeunmo Pro'; font-size: 1.5rem; color: #0057FF; font-weight: 100; line-height: 1.5; text-align: center;}
 
 
-    </style>
+	.flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0px;
+    }
+  .wrap{
+    	width: 1000px;
+    	margin: auto;
+    	position: relative;
+    }
+	.menu {
+      list-style-type: none;
+      display: flex;
+      font-family: 'NeoDunggeunmo Pro'; font-size: 1.5rem;
+    }
+	.menu li {padding-right: 60px; padding-left: 40px;}
+    
+    
+    .menu li a {text-decoration: none;color: white;}
+    
+    .menu li a:hover {color: #0057FF;}
+  
+    .fixed-nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: black;
+      z-index: 1000;
+    }
+    
+    .logo {
+      padding-left: 40px;
+      font-family: 'NeoDunggeunmo Pro';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 2.5rem;
+      color: #0057FF;
+    }
+    .img1 {display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    scale: 165%;}
+
+
+    .center{display: flex; justify-content: center; align-items: center; margin-top: -80px;}
+    .center1{display: flex; justify-content: center; align-items: center;}
+
+</style>
+	
 </head>
 <body style="background-color: black;">
-    <div class="container">
-    	<h1>"DROPPER 상시 모집중"</h1>
-        <img src="1s.png" alt="1s" class="responsive-image scroll-animation padding1s">
-        <img src="2s.png" alt="2s" class="responsive-image scroll-animation padding2s">
-        <img src="3s.png" alt="3s" class="responsive-image scroll-animation padding3s">
-        <img src="4s.png" alt="4s" class="responsive-image scroll-animation padding4s">
-        <button class="round-button" id="navigate-button">드라퍼 더 알아보기</button>
+  <nav class="fixed-nav">
+    <div class="flex">
+      <div class="logo"> DROPPER </div>
+      <ul class="menu">
+        <li><a href="#aaa">ABOUT</a></li>
+        <li><a href="#bbb">RISK</a></li>
+        <li><a href="#ccc">PUNISHMENT</a></li>
+      </ul>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const images = document.querySelectorAll('.scroll-animation');
+  </nav>
 
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('show');
-                    } else {
-                        entry.target.classList.remove('show');
-                    }
-                });
-            }, { threshold: 0.1 });
+        <section id="aaa">
+          <div class="wrap img1">
+            <img src="dropper.gif" alt="Dropper GIF">
+          </div>
+          <div class="wrap">
+            <h1 class="center">* 던지기 수법을 통해 마약을 특정 장소에 운반하는<br>
+   구매자에게 닿기 직전의 전달책</h1>
+            <h2 class="center1">(판매자가 아닌, 판매자와 구매자 사이를 연결하는 사람)</h2>
 
-            images.forEach(image => {
-                observer.observe(image);
 
-            });
-            document.getElementById('navigate-button').addEventListener('click', function() {
-                window.location.href = 'file:///C:/Users/user/Desktop/%EC%9B%B9%ED%8D%BC%20%EA%B8%B0%EB%A7%90/index.html'; // 이동할 페이지 URL을 입력하세요
-            });
-        });
-    </script>
+          </div>
+
+
+<body>
+
+
+
+
+
+<script src="wow.js"></script>
+<script>
+new WOW().init();
+</script>
+
 </body>
 </html>
